@@ -1,190 +1,313 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Cyber-Agent | Enterprise LLM Firewalls & Red Teaming</title>
+    <title>SECURE-AI | Enterprise LLM Security & Autonomous Governance</title>
     <style>
-        /* Καθαρό, Μοντέρνο Cyber Security Theme */
+        :root {
+            --primary: #1e40af;
+            --primary-hover: #1e3a8a;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #0b0f19;
-            color: #e5e7eb;
-            line-height: 1.6;
+            background-color: var(--bg-white);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation Bar */
         header {
-            background-color: rgba(17, 24, 39, 0.8);
-            border-b: 1px solid #1f2937;
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #1f2937;
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            height: 70px;
+            padding: 0 24px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
         .logo {
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: #ef4444;
-            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Hero Section */
-        .hero {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 140px 20px 80px 20px;
-            text-align: center;
+        .logo span {
+            color: var(--primary);
         }
 
-        .badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #ef4444;
-            background-color: rgba(239, 68, 68, 0.1);
-            padding: 6px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            text-transform: uppercase;
-            margin-bottom: 25px;
+        nav {
+            display: flex;
+            gap: 32px;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #ffffff;
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
-        h1 span {
-            color: #ef4444;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: #9ca3af;
-            max-width: 650px;
-            margin: 0 auto 40px auto;
+        nav a:hover {
+            color: var(--text-main);
         }
 
         .btn {
             display: inline-block;
-            background-color: #ef4444;
-            color: #ffffff;
+            background-color: var(--primary);
+            color: var(--bg-white);
             font-weight: 600;
-            padding: 14px 28px;
+            font-size: 0.95rem;
+            padding: 12px 24px;
             border-radius: 6px;
             text-decoration: none;
-            transition: background 0.2s;
+            transition: background-color 0.2s;
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
-            background-color: #dc2626;
+            background-color: var(--primary-hover);
         }
 
-        /* Grid Section (The Problem) */
-        .features-section {
-            background-color: #0f172a;
-            padding: 80px 20px;
-            border-top: 1px solid #1e293b;
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            margin-left: 12px;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 50px;
-            color: #ffffff;
+        .btn-secondary:hover {
+            background-color: var(--bg-light);
         }
 
-        .grid {
-            max-width: 1100px;
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 180px 24px 100px 24px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
+
+        /* Corporate Section */
+        .section {
+            padding: 100px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-light {
+            background-color: var(--bg-light);
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Feature Grid */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
         }
 
         .card {
-            background-color: #1e293b;
-            padding: 30px;
+            background-color: var(--bg-white);
+            padding: 40px;
             border-radius: 8px;
-            border: 1px solid #334155;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
         }
 
         .card h3 {
-            font-size: 1.25rem;
-            margin: 15px 0 10px 0;
-            color: #ffffff;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-main);
         }
 
         .card p {
+            color: var(--text-muted);
             font-size: 0.95rem;
-            color: #9ca3af;
+            line-height: 1.6;
         }
 
-        /* Contact Section */
-        .contact-section {
+        /* Compliance Section */
+        .compliance-box {
+            background-color: var(--text-main);
+            color: var(--bg-white);
+            padding: 60px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .compliance-content h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .compliance-content p {
+            color: #94a3b8;
             max-width: 600px;
-            margin: 80px auto;
-            padding: 0 20px;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            padding: 48px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             text-align: center;
         }
 
-        .contact-box {
-            background-color: #111827;
-            padding: 40px 30px;
-            border-radius: 8px;
-            border: 1px solid #1f2937;
-            margin-top: 30px;
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
         }
 
-        .contact-box h4 {
-            font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        .contact-box .email {
-            font-family: monospace;
-            color: #ef4444;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
+        .form-group label {
+            display: block;
             font-size: 0.85rem;
-            color: #6b7280;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            background-color: var(--bg-white);
         }
 
         footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
             text-align: center;
-            padding: 40px 20px;
-            font-size: 0.8rem;
-            color: #4b5563;
-            border-top: 1px solid #1f2937;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background-color: var(--bg-light);
+        }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 140px; }
+            .hero p { margin-left: auto; margin-right: auto; }
+            nav { display: none; }
+            .compliance-box { flex-direction: column; text-align: center; padding: 40px 24px; }
         }
     </style>
 </head>
@@ -193,59 +316,42 @@
     <!-- Header / Navbar -->
     <header>
         <div class="nav-container">
-            <div class="logo">🛡️ AI-CYBER-AGENT</div>
-            <a href="#contact" class="btn" style="padding: 8px 16px; font-size: 0.9rem;">Free Risk Audit</a>
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                SECURE<span>AI</span>
+            </div>
+            <nav>
+                <a href="#solutions">Solutions</a>
+                <a href="#compliance">Compliance</a>
+                <a href="#audit">Request Audit</a>
+            </nav>
+            <a href="#audit" class="btn">Request Demo</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="badge">Next-Gen AI Security</div>
-        <h1>Your Traditional Firewalls<br><span>Cannot Stop Prompt Injections.</span></h1>
-        <p>We deploy autonomous AI Red Teaming Agents to find LLM vulnerabilities before hackers do, and protect your production with real-time AI Firewalls.</p>
-        <a href="#contact" class="btn">Book a 10-Min Free Audit</a>
-    </section>
-
-    <!-- The Problem Section -->
-    <section class="features-section">
-        <h2 class="section-title">The AI Vulnerability Gap</h2>
-        <div class="grid">
-            <div class="card">
-                <div style="font-size: 2rem;">💥</div>
-                <h3>Prompt Injections</h3>
-                <p>Users can manipulate your AI system prompt to bypass business logic and leak secure corporate data.</p>
-            </div>
-            <div class="card">
-                <div style="font-size: 2rem;">🔓</div>
-                <h3>Data Leakage (RAG)</h3>
-                <p>If your AI Agent connects to internal databases, malicious prompts can force it to exfiltrate private client records.</p>
-            </div>
-            <div class="card">
-                <div style="font-size: 2rem;">🛡️</div>
-                <h3>WAF Ineffectiveness</h3>
-                <p>Standard web firewalls search for SQL injections, not semantic overrides. You need context-aware AI security.</p>
+        <div class="hero-content">
+            <div class="hero-tag">Enterprise LLM Security</div>
+            <h1>Secure Your Enterprise <br>Generative AI Infrastructure</h1>
+            <p>Automated AI Red Teaming and real-time semantic guardrails built to protect LLMs and autonomous agents from prompt injections and data leakage.</p>
+            <div>
+                <a href="#audit" class="btn">Schedule Vulnerability Audit</a>
+                <a href="#solutions" class="btn btn-secondary">Read Documentation</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title" style="margin-bottom: 20px;">Get a Complete AI Risk Assessment</h2>
-        <p style="color: #9ca3af;">We will run our autonomous audit agent against your test endpoint and deliver a comprehensive executive PDF report on your current vulnerabilities.</p>
-        
-        <div class="contact-box">
-            <h4>Direct Enterprise Contact</h4>
-            <p style="color: #9ca3af; margin-bottom: 10px;">Dimitrios - AI Security Architect</p>
-            <div class="email">dimitrios.cyber.ai@gmail.com</div>
-            <p>Reach out directly via email to schedule your sandbox test. We respond within 2 hours.</p>
-        </div>
-    </section>
+    <!-- Solutions Section -->
+    <section id="solutions" class="section section-light">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Our Security Platform</h2>
+                <p>An enterprise-grade B2B suite designed to discover, intercept, and mitigate adversarial risks in production AI environments.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 AI-Cyber-Agent. Secure Autonomous Architectures. All Rights Reserved.</p>
-    </footer>
 
-</body>
-</html>
 
