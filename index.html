@@ -113,6 +113,24 @@
   .result ul{margin:8px 0 0 18px;color:var(--ink-2)}
   .note{margin-top:16px;font-size:.85rem;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}
 
+  /* Self-assessment quiz */
+  .q{padding:16px 0;border-bottom:1px solid var(--line)}
+  .q:first-child{padding-top:0}
+  .q .ask{font-weight:600;font-size:.98rem;margin-bottom:12px}
+  .q .ask b{color:var(--muted);font-weight:600;margin-right:8px}
+  .opts{display:flex;flex-direction:column;gap:8px}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:.92rem;color:var(--ink-2);transition:border-color .12s,background .12s}
+  .opt:hover{border-color:#cbd5e1}
+  .opt input{margin-top:3px;accent-color:var(--brand);flex:0 0 auto}
+  .opt.sel{border-color:var(--brand);background:#eff6ff;color:var(--ink)}
+  .quiz-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+  .meter{flex:1;min-width:160px;height:8px;background:var(--line);border-radius:999px;overflow:hidden}
+  .meter span{display:block;height:100%;width:0;border-radius:999px;transition:width .4s ease}
+  #quiz-result h3{font-size:1.1rem;margin-bottom:6px}
+  #quiz-result .lvl{font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:10px}
+  #quiz-result ul{margin:10px 0 14px 18px}
+  #quiz-result ul li{margin-bottom:5px}
+
   /* About + contact */
   .about{display:flex;gap:24px;align-items:flex-start}
   .avatar{flex:0 0 72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#1d4ed8,#0b1220);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.4rem}
@@ -147,6 +165,7 @@
       <a href="#scope" data-i18n="nav_scope">What we test</a>
       <a href="#method" data-i18n="nav_method">Method</a>
       <a href="#demo" data-i18n="nav_demo">Demo</a>
+      <a href="#assess" data-i18n="nav_assess">Self-check</a>
       <a href="#about" data-i18n="nav_about">About</a>
     </nav>
     <div class="right">
@@ -266,6 +285,22 @@
     </div>
   </section>
 
+  <!-- SELF-ASSESSMENT -->
+  <section id="assess" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-i18n="q_eyebrow">Free self-check</div>
+        <h2 data-i18n="q_title">How exposed is your AI system?</h2>
+        <p data-i18n="q_sub">Eight questions, two minutes. You get an indicative exposure level and where to look first. Runs in your browser — nothing is sent or stored.</p>
+      </div>
+      <div class="demo" style="max-width:760px">
+        <div id="quiz-body"></div>
+        <div id="quiz-result" class="result" aria-live="polite"></div>
+        <p class="note" data-i18n="q_note">Indicative only. A self-check is not a security assessment — it points you to the questions a real test answers.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about" class="alt">
     <div class="wrap">
@@ -361,6 +396,17 @@
       k_or:"Ή στείλτε email απευθείας:", k_name:"Όνομα", k_email:"Εταιρικό email", k_company:"Εταιρεία",
       k_scope:"Τι κάνει το AI σύστημά σας;", k_scope_ph:"π.χ. chatbot υποστήριξης με πρόσβαση στο ιστορικό παραγγελιών",
       k_send:"Αποστολή αιτήματος", foot:"Ανεξάρτητος έλεγχος ασφαλείας LLM",
+      nav_assess:"Αυτο-έλεγχος",
+      q_eyebrow:"Δωρεάν αυτο-έλεγχος", q_title:"Πόσο εκτεθειμένο είναι το AI σύστημά σας;",
+      q_sub:"Οκτώ ερωτήσεις, δύο λεπτά. Παίρνετε ένα ενδεικτικό επίπεδο έκθεσης και πού να κοιτάξετε πρώτα. Τρέχει στον browser σας — τίποτα δεν αποστέλλεται ούτε αποθηκεύεται.",
+      q_note:"Μόνο ενδεικτικό. Ο αυτο-έλεγχος δεν είναι αξιολόγηση ασφαλείας — σας δείχνει τις ερωτήσεις που απαντά ένας πραγματικός έλεγχος.",
+      q_btn:"Δείτε το αποτέλεσμα", q_reset:"Επανεκκίνηση", q_incomplete:"Απαντήστε και στις 8 ερωτήσεις για να δείτε το αποτέλεσμα.",
+      q_cta:"Κλείστε κλήση οριοθέτησης",
+      q_lo:"Χαμηλή έκθεση", q_mid:"Μέτρια έκθεση", q_hi:"Υψηλή έκθεση",
+      q_lo_d:"Οι βασικές άμυνες φαίνονται στη θέση τους. Ένας στοχευμένος έλεγχος θα επιβεβαίωνε ότι κρατούν υπό πίεση.",
+      q_mid_d:"Υπάρχουν εκμεταλλεύσιμα κενά. Αξίζει ένας έλεγχος πριν επεκτείνετε το σύστημα ή του δώσετε περισσότερη πρόσβαση.",
+      q_hi_d:"Το σύστημα συνδυάζει ευαίσθητη πρόσβαση με αδύναμες άμυνες. Ένας έλεγχος θα έπρεπε να είναι προτεραιότητα.",
+      q_focus:"Πού να κοιτάξετε πρώτα:",
       /* dynamic strings */
       r_ok:"Δεν εντοπίστηκε γνωστό μοτίβο επίθεσης.",
       r_ok_hint:"Αν αυτό ήταν η «αναδιατυπωμένη επίθεση», μόλις είδατε γιατί τα φίλτρα λέξεων δεν αρκούν.",
@@ -377,7 +423,62 @@
       r_empty:"Type a message first.",
       f_sending:"Sending…", f_ok:"Thank you — we'll get back to you shortly.",
       f_err:"Something went wrong. Please email us directly.",
-      f_cfg:"The form isn't configured yet. Please email us directly."
+      f_cfg:"The form isn't configured yet. Please email us directly.",
+      q_btn:"See my result", q_reset:"Start over", q_incomplete:"Answer all 8 questions to see your result.",
+      q_cta:"Book a scoping call",
+      q_lo:"Low exposure", q_mid:"Medium exposure", q_hi:"High exposure",
+      q_lo_d:"Core defences look to be in place. A focused test would confirm they hold under pressure.",
+      q_mid_d:"There are exploitable gaps. Worth a test before you scale the system or give it more access.",
+      q_hi_d:"The system combines sensitive access with weak defences. A test should be a priority.",
+      q_focus:"Where to look first:"
+    }
+  };
+
+  /* ---------- Self-assessment quiz data ---------- */
+  var QUIZ = {
+    en: {
+      questions: [
+        { q: "Who can use your AI system?", a: ["Internal staff only", "Signed-in customers", "Anyone on the public internet"] },
+        { q: "What data can it reach?", a: ["No sensitive data", "Internal documents", "Customer personal data"] },
+        { q: "Can it take actions through tools or APIs?", a: ["No, text replies only", "It can read data", "It can change data or trigger actions"] },
+        { q: "Does it read content from outside the conversation?", a: ["No", "Uploaded files or web pages", "Emails or other third-party data"] },
+        { q: "What input protection is in place?", a: ["A dedicated LLM security layer", "A basic keyword filter", "None"] },
+        { q: "Has it been tested against prompt injection?", a: ["Yes, by specialists", "Informally, by the team", "Never"] },
+        { q: "If it uses retrieval/RAG, are access checks enforced per user?", a: ["Yes, server-side", "Partly / unsure", "No, or it isn't enforced"] },
+        { q: "Is its output checked before being used (HTML, SQL, shell, API calls)?", a: ["Yes, always", "Sometimes", "No"] }
+      ],
+      focus: [
+        "Restrict who can reach the assistant and rate-limit anonymous access.",
+        "Separate sensitive data from what the model can see by default.",
+        "Constrain tool permissions — read-only where possible, approval for writes.",
+        "Treat any external content as untrusted input, not instructions.",
+        "Add a real input-inspection layer rather than a keyword filter.",
+        "Run an adversarial prompt-injection test before going wider.",
+        "Enforce per-user access control inside retrieval, not in the prompt.",
+        "Validate and encode model output before it hits a browser, DB or shell."
+      ]
+    },
+    el: {
+      questions: [
+        { q: "Ποιος μπορεί να χρησιμοποιήσει το AI σύστημά σας;", a: ["Μόνο εσωτερικό προσωπικό", "Συνδεδεμένοι πελάτες", "Οποιοσδήποτε στο διαδίκτυο"] },
+        { q: "Σε τι δεδομένα έχει πρόσβαση;", a: ["Σε κανένα ευαίσθητο δεδομένο", "Σε εσωτερικά έγγραφα", "Σε προσωπικά δεδομένα πελατών"] },
+        { q: "Μπορεί να κάνει ενέργειες μέσω εργαλείων ή APIs;", a: ["Όχι, μόνο απαντήσεις κειμένου", "Μπορεί να διαβάζει δεδομένα", "Μπορεί να αλλάζει δεδομένα ή να εκτελεί ενέργειες"] },
+        { q: "Διαβάζει περιεχόμενο εκτός της συνομιλίας;", a: ["Όχι", "Ανεβασμένα αρχεία ή ιστοσελίδες", "Emails ή δεδομένα τρίτων"] },
+        { q: "Τι προστασία εισόδου υπάρχει;", a: ["Ειδικό επίπεδο ασφαλείας LLM", "Ένα απλό φίλτρο λέξεων", "Καμία"] },
+        { q: "Έχει ελεγχθεί για prompt injection;", a: ["Ναι, από ειδικούς", "Πρόχειρα, από την ομάδα", "Ποτέ"] },
+        { q: "Αν χρησιμοποιεί RAG, γίνεται έλεγχος πρόσβασης ανά χρήστη;", a: ["Ναι, στον server", "Εν μέρει / δεν είμαι σίγουρος", "Όχι, ή δεν επιβάλλεται"] },
+        { q: "Ελέγχεται η έξοδός του πριν χρησιμοποιηθεί (HTML, SQL, shell, APIs);", a: ["Ναι, πάντα", "Μερικές φορές", "Όχι"] }
+      ],
+      focus: [
+        "Περιορίστε ποιος φτάνει στον βοηθό και βάλτε όρια στην ανώνυμη πρόσβαση.",
+        "Ξεχωρίστε τα ευαίσθητα δεδομένα από όσα βλέπει το μοντέλο εξ ορισμού.",
+        "Περιορίστε τα δικαιώματα των εργαλείων — μόνο ανάγνωση όπου γίνεται, έγκριση για εγγραφές.",
+        "Αντιμετωπίστε κάθε εξωτερικό περιεχόμενο ως μη αξιόπιστη είσοδο, όχι ως εντολή.",
+        "Προσθέστε πραγματικό επίπεδο ελέγχου εισόδου, όχι φίλτρο λέξεων.",
+        "Τρέξτε έναν έλεγχο prompt injection πριν επεκταθείτε.",
+        "Επιβάλετε έλεγχο πρόσβασης ανά χρήστη μέσα στην ανάκτηση, όχι στο prompt.",
+        "Επικυρώστε την έξοδο του μοντέλου πριν φτάσει σε browser, βάση ή shell."
+      ]
     }
   };
 
@@ -407,6 +508,7 @@
     try { localStorage.setItem("lang", lang); } catch (e) {}
     var out = document.getElementById("demo-out");
     if (out.className !== "result") runCheck();
+    if (typeof renderQuiz === "function") renderQuiz();
   }
 
   document.querySelectorAll(".lang button").forEach(function (b) {
@@ -458,6 +560,89 @@
     c.addEventListener("click", function () { input.value = c.getAttribute("data-ex"); runCheck(); });
   });
 
+  /* ---------- Self-assessment quiz ---------- */
+  var answers = {};
+  var quizBody = document.getElementById("quiz-body");
+  var quizResult = document.getElementById("quiz-result");
+
+  function renderQuiz() {
+    var data = QUIZ[lang] || QUIZ.en;
+    var html = "";
+    data.questions.forEach(function (item, qi) {
+      html += '<div class="q"><div class="ask"><b>' + (qi + 1) + ".</b>" + esc(item.q) + "</div><div class='opts'>";
+      item.a.forEach(function (opt, oi) {
+        var on = answers[qi] === oi ? " sel" : "";
+        var chk = answers[qi] === oi ? " checked" : "";
+        html += '<label class="opt' + on + '" data-q="' + qi + '" data-o="' + oi + '">' +
+          '<input type="radio" name="q' + qi + '"' + chk + '><span>' + esc(opt) + "</span></label>";
+      });
+      html += "</div></div>";
+    });
+    html += '<div class="quiz-foot">' +
+      '<button type="button" class="btn" id="quiz-btn">' + t("q_btn") + "</button>" +
+      '<button type="button" class="btn ghost sm" id="quiz-reset">' + t("q_reset") + "</button>" +
+      '<div class="meter"><span id="quiz-meter"></span></div></div>';
+    quizBody.innerHTML = html;
+
+    quizBody.querySelectorAll(".opt").forEach(function (l) {
+      l.addEventListener("click", function () {
+        var qi = +l.getAttribute("data-q");
+        answers[qi] = +l.getAttribute("data-o");
+        l.parentNode.querySelectorAll(".opt").forEach(function (x) { x.classList.remove("sel"); });
+        l.classList.add("sel");
+        l.querySelector("input").checked = true;
+        updateMeter();
+      });
+    });
+    document.getElementById("quiz-btn").addEventListener("click", showResult);
+    document.getElementById("quiz-reset").addEventListener("click", function () {
+      answers = {}; quizResult.className = "result"; quizResult.innerHTML = ""; renderQuiz();
+      document.getElementById("assess").scrollIntoView({ behavior: "smooth" });
+    });
+    updateMeter();
+    if (quizResult.className !== "result") showResult(true);
+  }
+
+  function updateMeter() {
+    var data = QUIZ[lang] || QUIZ.en;
+    var done = Object.keys(answers).length, total = data.questions.length;
+    var m = document.getElementById("quiz-meter");
+    if (m) { m.style.width = Math.round(done / total * 100) + "%"; m.style.background = "var(--brand)"; }
+  }
+
+  function showResult(keepScroll) {
+    var data = QUIZ[lang] || QUIZ.en;
+    var total = data.questions.length;
+    if (Object.keys(answers).length < total) {
+      quizResult.className = "result warn";
+      quizResult.innerHTML = esc(t("q_incomplete"));
+      return;
+    }
+    var score = 0, weak = [];
+    for (var i = 0; i < total; i++) {
+      score += answers[i];
+      if (answers[i] === 2) weak.push(data.focus[i]);
+    }
+    var max = total * 2, pct = score / max;
+    var band, cls, col, desc;
+    if (pct <= 0.3) { band = t("q_lo"); cls = "ok"; col = "var(--ok)"; desc = t("q_lo_d"); }
+    else if (pct <= 0.6) { band = t("q_mid"); cls = "warn"; col = "var(--warn)"; desc = t("q_mid_d"); }
+    else { band = t("q_hi"); cls = "bad"; col = "var(--bad)"; desc = t("q_hi_d"); }
+
+    if (!weak.length) weak = data.focus.slice(0, 3);
+    var focus = "<div style='font-weight:600;margin-top:4px'>" + t("q_focus") + "</div><ul>" +
+      weak.slice(0, 4).map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + "</ul>";
+
+    quizResult.className = "result " + cls;
+    quizResult.innerHTML =
+      "<span class='lvl' style='background:" + col + ";color:#fff'>" + esc(band) + "</span>" +
+      "<h3>" + score + " / " + max + "</h3>" +
+      "<div style='color:var(--ink-2)'>" + esc(desc) + "</div>" +
+      focus +
+      "<a href='#contact' class='btn'>" + t("q_cta") + "</a>";
+    if (!keepScroll) quizResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
   /* ---------- Contact form (Formspree) ---------- */
   var form = document.getElementById("contact-form");
   var msg = document.getElementById("form-msg");
@@ -484,3 +669,4 @@
 </script>
 </body>
 </html>
+
