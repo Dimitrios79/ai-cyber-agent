@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy · SECURE-AI</title>
+<meta name="description" content="How SECURE-AI handles personal data from the contact form and data from security assessments.">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b1220; --ink-2:#334155; --muted:#64748b; --line:#e2e8f0;
+    --bg:#ffffff; --bg-2:#f6f8fb; --brand:#1d4ed8; --brand-2:#1e3a8a; --max:760px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;letter-spacing:-.3px;color:var(--ink);font-size:1.05rem}
+  .logo svg{color:var(--brand)}
+  .logo b{color:var(--brand)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .lang button{border:0;background:transparent;padding:6px 10px;font:600 .8rem Inter,sans-serif;color:var(--muted);cursor:pointer}
+  .lang button.on{background:var(--ink);color:#fff}
+  main{padding:56px 0 72px}
+  h1{font-size:2rem;letter-spacing:-.6px;margin-bottom:6px}
+  .updated{color:var(--muted);font-size:.9rem;margin-bottom:12px}
+  .intro{color:var(--ink-2);font-size:1.05rem;margin-bottom:8px}
+  .note{background:var(--bg-2);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px;padding:12px 16px;margin:22px 0;font-size:.9rem;color:var(--ink-2)}
+  h2{font-size:1.2rem;letter-spacing:-.3px;margin:34px 0 10px}
+  p{color:var(--ink-2);margin-bottom:10px}
+  ul{margin:0 0 10px 20px;color:var(--ink-2)}
+  li{margin-bottom:6px}
+  .back{display:inline-block;margin-top:36px;font-weight:600;font-size:.92rem}
+  footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem;margin-top:40px}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){--ink:#e5e9f0;--ink-2:#c3ccda;--muted:#94a3b8;--line:#1f2a3b;--bg:#0b1220;--bg-2:#111a2b;--brand:#60a5fa}
+  }
+  :root[data-theme="dark"]{--ink:#e5e9f0;--ink-2:#c3ccda;--muted:#94a3b8;--line:#1f2a3b;--bg:#0b1220;--bg-2:#111a2b;--brand:#60a5fa}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      SECURE<b>-AI</b>
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="el">EL</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1 data-i18n="title">Privacy Policy</h1>
+    <div class="updated"><span data-i18n="updated">Last updated</span>: 2026-10-15</div>
+    <p class="intro" data-i18n="intro">This page explains what personal data SECURE-AI collects, why, and how it is handled. SECURE-AI is operated by Dimitrios, an independent practitioner based in Bulgaria.</p>
+
+    <div class="note" data-i18n="draft">Draft for review — confirm the operator details, retention period and contact address before relying on this page. This is not legal advice.</div>
+
+    <h2 data-i18n="h_who">Who is responsible</h2>
+    <p data-i18n="p_who">SECURE-AI is run by Dimitrios, a sole independent practitioner in Bulgaria. For any question about your data, or to ask for it to be deleted, contact <a href="mailto:dimitrios.cyber.ai@gmail.com">dimitrios.cyber.ai@gmail.com</a>.</p>
+
+    <h2 data-i18n="h_form">Data from the contact form</h2>
+    <p data-i18n="p_form">When you submit the contact form, the following is collected:</p>
+    <ul>
+      <li data-i18n="f1">Your name, work email and company (if provided).</li>
+      <li data-i18n="f2">The description you write about your AI system.</li>
+    </ul>
+    <p data-i18n="p_form2">This is used only to reply to your enquiry and discuss possible work. Form submissions are delivered through Formspree, which processes the message on its servers; see Formspree's own privacy policy for details. The data is not sold, and is not used for advertising.</p>
+
+    <h2 data-i18n="h_assess">Data from security assessments</h2>
+    <p data-i18n="p_assess">When engaged for an assessment, findings, logs and any test data are handled as confidential:</p>
+    <ul>
+      <li data-i18n="a1">Stored encrypted on the practitioner's own computer, not on shared cloud services.</li>
+      <li data-i18n="a2">Accessed only by the practitioner; not shared with third parties except as the engagement requires and the client agrees.</li>
+      <li data-i18n="a3">Deleted within 90 days of final delivery, unless the client asks in writing for a different period.</li>
+    </ul>
+
+    <h2 data-i18n="h_self">The self-assessment and demo tools</h2>
+    <p data-i18n="p_self">The self-check and the injection demo on the website run entirely in your browser. Your answers and any text you type are not sent to any server and are not stored.</p>
+
+    <h2 data-i18n="h_hosting">Hosting and analytics</h2>
+    <p data-i18n="p_hosting">The website is hosted on GitHub Pages, which may log technical data such as IP addresses in its server logs. The site itself sets no tracking cookies and uses no analytics.</p>
+
+    <h2 data-i18n="h_rights">Your rights</h2>
+    <p data-i18n="p_rights">Under the GDPR you can ask what data is held about you, ask for it to be corrected or deleted, and object to its use. Email the address above and the request will be handled within one month.</p>
+
+    <a href="index.html" class="back" data-i18n="back">← Back to the site</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 SECURE-AI</div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var T = {
+    el: {
+      title:"Πολιτική Απορρήτου", updated:"Τελευταία ενημέρωση",
+      intro:"Αυτή η σελίδα εξηγεί ποια προσωπικά δεδομένα συλλέγει το SECURE-AI, γιατί, και πώς τα διαχειρίζεται. Το SECURE-AI λειτουργεί από τον Dimitrios, ανεξάρτητο επαγγελματία με έδρα τη Βουλγαρία.",
+      draft:"Πρόχειρο προς έλεγχο — επιβεβαιώστε τα στοιχεία του υπευθύνου, τον χρόνο διατήρησης και τη διεύθυνση επικοινωνίας πριν βασιστείτε σε αυτή τη σελίδα. Δεν αποτελεί νομική συμβουλή.",
+      h_who:"Ποιος είναι υπεύθυνος",
+      p_who:"Το SECURE-AI λειτουργεί από τον Dimitrios, μεμονωμένο ανεξάρτητο επαγγελματία στη Βουλγαρία. Για οποιαδήποτε ερώτηση σχετικά με τα δεδομένα σας, ή για να ζητήσετε τη διαγραφή τους, επικοινωνήστε στο <a href=\"mailto:dimitrios.cyber.ai@gmail.com\">dimitrios.cyber.ai@gmail.com</a>.",
+      h_form:"Δεδομένα από τη φόρμα επικοινωνίας",
+      p_form:"Όταν υποβάλλετε τη φόρμα επικοινωνίας, συλλέγονται τα εξής:",
+      f1:"Το όνομα, το εταιρικό email και η εταιρεία σας (εφόσον τα δώσετε).",
+      f2:"Η περιγραφή που γράφετε για το AI σύστημά σας.",
+      p_form2:"Χρησιμοποιούνται μόνο για να απαντήσουμε στο αίτημά σας και να συζητήσουμε πιθανή συνεργασία. Οι υποβολές παραδίδονται μέσω του Formspree, που επεξεργάζεται το μήνυμα στους διακομιστές του· δείτε την πολιτική απορρήτου του Formspree για λεπτομέρειες. Τα δεδομένα δεν πωλούνται και δεν χρησιμοποιούνται για διαφήμιση.",
+      h_assess:"Δεδομένα από ελέγχους ασφαλείας",
+      p_assess:"Σε περίπτωση ανάθεσης ελέγχου, τα ευρήματα, τα logs και τυχόν δεδομένα δοκιμών αντιμετωπίζονται ως εμπιστευτικά:",
+      a1:"Αποθηκεύονται κρυπτογραφημένα στον υπολογιστή του επαγγελματία, όχι σε κοινόχρηστες υπηρεσίες cloud.",
+      a2:"Είναι προσβάσιμα μόνο από τον επαγγελματία· δεν κοινοποιούνται σε τρίτους παρά μόνο όπως απαιτεί το έργο και με τη συγκατάθεση του πελάτη.",
+      a3:"Διαγράφονται εντός 90 ημερών από την τελική παράδοση, εκτός αν ο πελάτης ζητήσει γραπτώς διαφορετικό διάστημα.",
+      h_self:"Τα εργαλεία αυτο-ελέγχου και demo",
+      p_self:"Ο αυτο-έλεγχος και το demo injection στην ιστοσελίδα τρέχουν εξ ολοκλήρου στον browser σας. Οι απαντήσεις σας και όποιο κείμενο πληκτρολογείτε δεν αποστέλλονται σε κανέναν διακομιστή και δεν αποθηκεύονται.",
+      h_hosting:"Φιλοξενία και στατιστικά",
+      p_hosting:"Η ιστοσελίδα φιλοξενείται στο GitHub Pages, που ενδέχεται να καταγράφει τεχνικά δεδομένα όπως διευθύνσεις IP στα logs του. Η ίδια η σελίδα δεν χρησιμοποιεί cookies παρακολούθησης ούτε analytics.",
+      h_rights:"Τα δικαιώματά σας",
+      p_rights:"Βάσει του GDPR μπορείτε να ρωτήσετε ποια δεδομένα τηρούνται για εσάς, να ζητήσετε διόρθωση ή διαγραφή τους, και να αντιταχθείτε στη χρήση τους. Στείλτε email στην παραπάνω διεύθυνση και το αίτημα θα απαντηθεί εντός ενός μήνα.",
+      back:"← Επιστροφή στη σελίδα"
+    }
+  };
+  document.querySelectorAll("[data-i18n]").forEach(function (el) {
+    T.en = T.en || {}; T.en[el.getAttribute("data-i18n")] = el.innerHTML;
+  });
+  var lang = "en";
+  function setLang(l) {
+    lang = T[l] ? l : "en";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      el.innerHTML = (T[lang] && T[lang][k]) || T.en[k];
+    });
+    document.querySelectorAll(".lang button").forEach(function (b) {
+      b.classList.toggle("on", b.getAttribute("data-lang") === lang);
+    });
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  if (!saved && (navigator.language || "").toLowerCase().indexOf("el") === 0) saved = "el";
+  setLang(saved || "en");
+})();
+</script>
+</body>
+</html>
